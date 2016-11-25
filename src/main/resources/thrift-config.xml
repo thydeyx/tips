@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-autowire="byName">
+
+    <bean id="TipsThriftProcessor"
+          class="com.meituan.service.mobile.tips.thrift.TipsThriftProcessor">
+    </bean>
+
+    <bean id="tipsRouter" class="com.meituan.service.mobile.tips.router.TipsRouter">
+        <constructor-arg name="configPath" value="config/router.json" />
+        <property name="runningMode" value="${runningMode}"/>
+    </bean>
+
+    <bean id="TipsThriftServicePublish" class="com.meituan.service.mobile.mtthrift.proxy.ThriftServerPublisher"
+          init-method="publish" destroy-method="destroy">
+        <property name="serviceInterface"
+                  value="com.meituan.dataapp.service.tips.thrift.SearchTips"/>
+        <!-- 指定service接口类 -->
+        <property name="serviceImpl" ref="TipsThriftProcessor"/>
+        <!-- 指定processor -->
+        <property name="selectorThreads" value="4"/>
+        <!-- 可不配置，默认4 -->
+        <property name="minWorkerThreads" value="50"/>
+        <!-- 可不配置，默认10 -->
+        <property name="port" value="${thrift_tips_port:8989}"/>
+        <!-- 服务端口号 -->
+        <property name="daemon" value="true"/>
+        <!-- 是否后台线程，可不配置，默认值true -->
+        <property name="appKey" value="${serverAppkey}"/>
+        <property name="clusterManager" value="octo"/>
+    </bean>
+</beans>

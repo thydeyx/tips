@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-autowire="byName">
+
+    <bean id="mtConfigClient" class="com.sankuai.meituan.config.MtConfigClient" init-method="init" destroy-method="destroy">
+        <!-- 1.0.0及后面版本使用-->
+        <property name="model" value="v2"/>
+        <!-- 配置实例的标识(id),必须在服务进程内全局唯一-->
+        <property name="id" value="search.query.tips"/>
+        <!-- octo上申请的appkey-->
+        <property name="appkey" value="${serverAppkey}"/>
+        <!-- 可选,可指定使用的环境-->
+        <!--<property name="env" value="prod"/>-->
+        <!-- 可选，扫描注解的根目录，默认全部扫描, jar包里面的也会扫描-->
+        <property name="scanBasePackage" value="com.meituan.service.mobile"/>
+    </bean>
+</beans>

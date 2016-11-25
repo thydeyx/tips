@@ -1,0 +1,25 @@
+version: v1
+common:
+    os: centos7
+    tools:
+      oracle-jdk: 7
+
+build:
+    tools:
+        maven: 3.3.3
+    run:
+        workDir: ./
+        cmd:
+            - sh deploy/compile.sh
+    target:
+        distDir: ./target/       # 相对代码根目录的路径
+        files:
+            - ./*.war
+            - ../deploy
+autodeploy:
+    targetDir: /opt/meituan/mobile/tips/    # 暂时autodeploy会以targetDir的最后一级目录作为service/的名字
+    env:
+    run: sh deploy/run.sh
+#    check: sh /opt/meituan/mobileapptest/tips/deploy/check.sh
+#    checkRetry: 1
+#    checkInterval: 1s

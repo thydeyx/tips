@@ -1,0 +1,64 @@
+{
+  "NumberOfBuckets": 100,
+  "DefaultSegment": {
+    "WhiteList": [],
+    "CityIdsIncluded": [],
+    "CityIdsExcluded": [],
+    "HandlerList":[
+      "checkQueryHandler",
+      "bizAreaHandler",
+      "queryResultHandler",
+      "packResultHandler",
+      "logCollectorHandler"
+    ],
+    "Setting": {}
+  },
+  "Segments": [
+    {
+      "BeginBucket": 0,
+      "EndBucket": 49,
+      "Strategy": "show",
+      "WhiteList": [
+        "BFCDCF84FF054BB1F374E1C06D2E7A5C7A021DBF86011B9E8517B92A30CD9CEB",
+        "FF0A62201C158A619B5B5D3998CE918CDC283E2D3F32C1F2F0C30AFE63E787C3",
+        "930C3DA188E9038E357896DCACD141B135A7C75DCD847E934CC15DE7537C8AA0",
+        "378EDBC9F716300615E215017CFA7D04E0151FAC3133324F23B6FFBD232A96A5",
+        "9A05F793971892326EDEFA4A55999ECAD1E396A8CC68758A59E1E7C90EBA7DED",
+        "E7C8CCFEC03153149DDDE1F86D11940E02D6C9C92F7B0DE3AE2D4E1F0F2E920A",
+        "C408479C5DCEECABDFDC9BEEE82BDF0D642E35C3F535B465CA9F0DEFEDB8C96E",
+        "D285C74987230F6235C5BAF477D33153B6B7644134933A506B46610E9345B648",
+        "A0A65CDD3B542741B48DE0EC6DACB6A264D2C5759971917A7353A5B1F8D3206C",
+        "3D4EC6ADBEFA3F18DA9EDB9A3B5867E20B06B297B7706AAEDD9360FE2964FB9F",
+        "D5166256A98A8794E87771D2EA26C7A882B3B0310DC1CDA8CA844B8D7C9636C7",
+        "A9D022280B326E364A4CDEB5B14716E18610CD15EA0F2EAEB1B7282BFFF08964",
+        "30C8990791458288A26DBAEB2B55570A1F3890B7114527EEDFDD25ABB3A11DDF"
+      ],
+      "CityIdsIncluded": [],
+      "CityIdsExcluded": [],
+      "HandlerList":[
+        "checkQueryHandler",
+        "cateHandler",
+        "queryResultHandler",
+        "packResultHandler",
+        "logCollectorHandler"
+      ],
+      "Setting": {}
+    },
+    {
+      "BeginBucket": 50,
+      "EndBucket": 99,
+      "Strategy": "hide",
+      "WhiteList": [],
+      "CityIdsIncluded": [],
+      "CityIdsExcluded": [],
+      "HandlerList":[
+        "checkQueryHandler",
+        "cateHandler",
+        "queryResultHandler",
+        "packResultHandler",
+        "logCollectorHandler"
+      ],
+      "Setting": {}
+    }
+  ]
+}

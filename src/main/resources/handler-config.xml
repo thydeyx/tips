@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-autowire="byName">
+
+    <bean id="redisClient"
+          class="com.meituan.service.mobile.tips.queryResult.QueryResultRedisClient">
+    </bean>
+
+    <bean id="tairClient" class="com.meituan.ptdata.tairClientService.impl.TairClientService"
+          init-method="init" destroy-method="destroy">
+        <property name="area" value="1"/>
+        <property name="requestTimeout" value="20" />
+        <property name="tairConfigFileName" value="tips_tair_client.conf"></property>
+        <property name="tairConfigFilePath" value=""></property>
+        <property name="appKey" value="com.sankuai.search.tips"></property>
+    </bean>
+
+    <bean id="uuidClient"
+          class="com.meituan.service.mobile.data.manager.DataClientManager">
+    </bean>
+
+    <!-- handler配置 -->
+    <bean id="checkQueryHandler"
+          class="com.meituan.service.mobile.tips.checkQuery.CheckQueryHandler">
+    </bean>
+
+    <bean id="bizAreaHandler"
+          class="com.meituan.service.mobile.tips.IRecall.BizAreaHandler">
+    </bean>
+
+    <bean id="cateHandler"
+          class="com.meituan.service.mobile.tips.IRecall.CateHandler">
+    </bean>
+
+    <bean id="queryResultHandler"
+          class="com.meituan.service.mobile.tips.queryResult.QueryResultHandler">
+    </bean>
+
+    <bean id="packResultHandler"
+          class="com.meituan.service.mobile.tips.packResult.PackResultHandler">
+    </bean>
+
+    <bean id="logCollectorHandler"
+          class="com.meituan.service.mobile.tips.logcollector.LogCollectorHandler">
+    </bean>
+</beans>
